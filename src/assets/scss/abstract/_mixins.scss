@@ -1,0 +1,14 @@
+@mixin clearfix {
+  &:after {
+    content: ""; //Must be specified to ensure sudo element appears on a page
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin backgroundImage($img-name) {
+  background-image: linear-gradient(to right bottom,
+          rgba($color-primary-light, 0.8),
+          rgba($color-primary-dark, 0.8)),
+  url('~@/assets/img/'+ $img-name);
+}

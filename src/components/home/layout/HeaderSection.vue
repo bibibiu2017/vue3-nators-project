@@ -10,17 +10,17 @@
         <span class="heading-primary--sub">Is Where Life happens</span>
       </h1>
 
-      <base-button is-link title="Discover Our Tours"></base-button>
+      <base-button is-link animated to="/tours">Discover Our Tours</base-button>
     </div>
   </header>
 </template>
 
 <script lang="ts">
 import {defineComponent} from 'vue';
-import BaseButton from '@/components/ui/BaseButton.vue';
+import BaseButton from '@/components/ui/buttons/BaseButton.vue';
 
 export default defineComponent({
-  name: 'TheHeader',
+  name: 'HomeHeaderSection',
   components: {
     BaseButton
   }
@@ -34,10 +34,7 @@ export default defineComponent({
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  background-image: linear-gradient(to right bottom,
-      rgba($color-primary-light, 0.8),
-      rgba($color-primary-dark, 0.8)),
-  url(~@/assets/img/hero.jpg);
+  @include backgroundImage('hero.jpg');
 
   &__log-box {
     position: absolute;
