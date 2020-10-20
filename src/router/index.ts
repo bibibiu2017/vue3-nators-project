@@ -13,6 +13,33 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Tours',
     component: () => import(/* webpackChunkName: "about" */ '@/views/Tours'),
   },
+  {
+    path: '/book',
+    name: 'Book',
+    component: () => import(/* webpackChunkName: "about" */ '@/views/Book'),
+  },
+  {
+    path: '/profile',
+    name: 'LinkedIn',
+    beforeEnter() {
+      location.href = 'https://www.linkedin.com/in/arthur-mita-a37734134';
+    },
+  },
+  {
+    path: '/course',
+    name: 'AdvancedCssCourse',
+    beforeEnter() {
+      location.href = 'https://www.udemy.com/course/advanced-css-and-sass';
+    },
+  },
+  {
+    path: "/git",
+    name: 'Github',
+    beforeEnter() {
+      location.href = 'https://github.com/bibibiu2017/vue3-nators-project'
+    }
+  }
+
   // {
   //   path: '/about',
   //   name: 'About',

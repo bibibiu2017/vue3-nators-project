@@ -25,7 +25,7 @@ created 16/10/2020 at 18:14
           <p class="card__price-only">Only</p>
           <p class="card__price-value">${{ card.back.price }}</p>
         </div>
-        <base-button is-link to="/">Book Now</base-button>
+        <base-button is-link to="/book">Book Now</base-button>
       </div>
     </div>
   </div>

@@ -7,7 +7,7 @@ created 16/10/2020 at 00:33
   <router-link v-if="isLink" :class="computedClass" :to="to">
     <slot></slot>
   </router-link>
-  <button v-else class="btn" @click="buttonClicked">
+  <button v-else :class="computedClass" @click="buttonClicked">
     <slot></slot>
   </button>
 </template>
@@ -69,113 +69,9 @@ export default defineComponent({
 
       return buttonClass;
     });
-
     return {
       buttonClicked, computedClass,
     };
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.btn {
-
-  &:link,
-  &:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 30rem;
-    transition: all 0.2s;
-    position: relative;
-    font-size: $default-font-size;
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-  }
-
-  &:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
-
-    &::after {
-      transform: scaleX(1.4) scaleY(1.6);
-      opacity: 0;
-    }
-  }
-
-  &:active {
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
-    //box-shadow: none;
-  }
-
-  &::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-
-  &--animated {
-    animation: moveInButton 1s ease-out 0.75s;
-    animation-fill-mode: backwards;
-  }
-
-  &--white {
-    background-color: $color-white;
-    color: $color-grey-dark;
-
-    &::after {
-      background-color: $color-white;
-      transition: all 0.4s;
-    }
-  }
-
-  &--green {
-    font-weight: 300;
-    background-color: $color-primary;
-    color: $color-white;
-
-    &::after {
-      background-color: $color-primary;
-      transition: all 0.4s;
-    }
-  }
-}
-
-.btn-text {
-  &:link,
-  &:visited {
-    font-size: $default-font-size;
-    display: inline-block;
-    text-decoration: none;
-    padding: 3px;
-    transition: all .2s;
-  }
-
-  &:hover {
-    box-shadow: 0 1rem 2rem rgba($color-black, .15);
-    transform: translateY(-2px);
-  }
-
-  &:active {
-    box-shadow: 0 .5rem 1rem rgba($color-black, .15);
-    transform: translateY(0);
-  }
-
-  &--green {
-    color: $color-primary;
-    border-bottom: 1px solid $color-primary;
-
-    &:hover {
-      color: $color-white;
-      background-color: $color-primary;
-    }
-  }
-}
-</style>
